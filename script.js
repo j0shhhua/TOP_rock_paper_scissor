@@ -21,6 +21,7 @@ function getHumanChoice(){
 
 function playRound(humanChoice, computerChoice){
     if (humanChoice === computerChoice) return 'tie';
+    // Hash map for easy reference on win / lose scenarios
     const beats = {rock: 'scissor', paper: 'rock', scissor: 'paper'};
 
     if (beats[humanChoice]===computerChoice){
@@ -32,13 +33,22 @@ function playRound(humanChoice, computerChoice){
     }
 }
 
-
-let choice = getHumanChoice();
-while (!isValid(choice)){
-    alert('Not a valid choice...')
-    choice = getHumanChoice();
+function playGame(){
+    let choice = getHumanChoice();
+    
+    while (!isValid(choice)){
+        alert('Not a valid choice...')
+        choice = getHumanChoice();
+    }
+    let player = choice.toLowerCase();
+    let comp = getComputerChoice();
+    playRound(player, comp);
+    console.log(`Player score: ${player_score}\nComputer score: ${computer_score}`)
 }
-let player = choice.toLowerCase();
-let comp = getComputerChoice();
-alert(`${playRound(player, comp)}\ncurrent score\nYou:${player_score} Computer:${computer_score}`);
+
+playGame();
+playGame();
+playGame();
+playGame();
+playGame();
 
