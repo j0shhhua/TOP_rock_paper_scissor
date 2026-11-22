@@ -1,22 +1,13 @@
 let player_score = 0;
 let computer_score = 0;
 let options = ['rock', 'paper', 'scissor'];
+const buttons = document.getElementById('button_grp');
+const results = document.getElementById('results');
 
-function isValid(choice){
-    if (typeof choice !== 'string'){
-        return false;
-    }
-    return options.includes(choice.toLowerCase());
-}
 
 function getComputerChoice(){
     let choice = Math.floor(Math.random() * options.length);
     return options[choice];
-}
-
-function getHumanChoice(){
-    let choice = window.prompt("Rock, paper, or scissor?\n");``
-    return choice;
 }
 
 function playRound(humanChoice, computerChoice){
@@ -33,22 +24,17 @@ function playRound(humanChoice, computerChoice){
     }
 }
 
-function playGame(){
-    let choice = getHumanChoice();
-    
-    while (!isValid(choice)){
-        alert('Not a valid choice...')
-        choice = getHumanChoice();
-    }
-    let player = choice.toLowerCase();
+function playGame(choice){
+    let player = choice;
     let comp = getComputerChoice();
     playRound(player, comp);
-    console.log(`Player score: ${player_score}\nComputer score: ${computer_score}`)
+    console.log(`Player score: ${player_score}\nComputer score: ${computer_score}`);
+    results.textContent = `Player Score : ${player_score} Computer Score: ${computer_score}`;
 }
 
-playGame();
-playGame();
-playGame();
-playGame();
-playGame();
+buttons.addEventListener('click', () =>{
+    console.log('Clicked button', event.target.id);
+    let choice = String(event.target.id);
+    playGame(choice);
+})
 
