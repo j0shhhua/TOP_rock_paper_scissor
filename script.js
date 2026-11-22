@@ -28,6 +28,27 @@ function playGame(choice){
     let player = choice;
     let comp = getComputerChoice();
     playRound(player, comp);
+    if (player_score === 5 || computer_score === 5){
+        if (player_score > computer_score){
+            alert('Player wins the game!');
+        } else {
+            alert('Computer wins the game!');
+        }
+        player_score = 0;
+        computer_score = 0;
+    }
+    else {
+        if (player_score > computer_score){
+            console.log('Player won round');
+            round_results.textContent = 'Player won round';
+        } else if (player_score < computer_score){
+            console.log('Computer won round');
+            round_results.textContent = 'Computer won round';
+        } else {
+            console.log('Tied round');
+            round_results.textContent = 'Tied round';
+        }
+    }
     console.log(`Player score: ${player_score}\nComputer score: ${computer_score}`);
     results.textContent = `Player Score : ${player_score} Computer Score: ${computer_score}`;
 }
