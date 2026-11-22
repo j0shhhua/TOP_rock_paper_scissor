@@ -6,3 +6,7 @@ Used window prompt style to prompt user on the their choice. Choice is either ro
 
 Current limitations:
 Results can only be viewed once all 5 round ends, and not at any point of time.
+
+# Update 22 Nov 26:
+
+Have udded UI elements (buttons) at the html file and coded a first-to-5 type game within the scripts.
